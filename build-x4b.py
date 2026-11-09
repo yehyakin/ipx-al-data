@@ -17,6 +17,8 @@ OUT = sys.argv[1] if len(sys.argv) > 1 else 'risk-data'
 REPO = 'X4BNet/lists_vpn'
 RAW = f'https://raw.githubusercontent.com/{REPO}/%s/'
 MIN_PEERS = 10
+# AS9009 M247 是普通机房，整个 ASN 当 VPN 会把非 VPN 客户一起标上（Kin 2026-11-09 同意排除）；M247 上的 NordVPN 服务器由 vpn.bin 官方服务器 IP 覆盖
+EXCLUDE_ASNS = {9009}
 UA = {'User-Agent': 'ipx.al data builder (https://ipx.al)'}
 
 
@@ -36,7 +38,7 @@ def main():
     asns = {}
     for line in get(base + 'input/vpn/ASN.txt').decode('utf-8', 'replace').splitlines():
         mm = re.match(r'\s*AS(\d+)\s*(?:#\s*(.*))?$', line)
-        if mm:
+        if mm and int(mm.group(1)) not in EXCLUDE_ASNS:
             asns[int(mm.group(1))] = re.sub(r'\s*\(https?://[^)]*\)', '', mm.group(2) or '').strip() or f'AS{mm.group(1)}'
     files = [x['name'] for x in json.loads(get(f'https://api.github.com/repos/{REPO}/contents/input/vpn/ips?ref={sha}')) if x['name'].endswith('.txt')]
     provs, items, counts = [], {4: [], 6: []}, {}
@@ -78,7 +80,7 @@ def main():
                 counts[f'AS{a}'] = counts.get(f'AS{a}', 0) + 1
     meta = {'built': dt.datetime.now(dt.timezone.utc).strftime('%Y-%m-%dT%H:%M:%SZ'), 'version': 1,
             'source': f'https://github.com/{REPO}', 'commit': sha, 'license': 'MIT', 'copyright': 'Copyright (c) 2026 X4B (Mathew Heard)',
-            'note': 'ASN.txt + input/vpn/ips (MIT) expanded with RIPE RIS riswhois; upstream output/ (IPLocate CC BY-SA 4.0) not used',
+            'excluded_asns': sorted(EXCLUDE_ASNS), 'note': 'ASN.txt + input/vpn/ips (MIT) expanded with RIPE RIS riswhois; upstream output/ (IPLocate CC BY-SA 4.0) not used',
             'asns': {str(k): v for k, v in sorted(asns.items())}, 'providers': provs, 'counts': counts}
     for ver, fn in ((4, 'x4b.bin'), (6, 'x4b6.bin')):
         it = sorted(items[ver], key=lambda x: x[2])  # 短前缀先铺，长前缀后盖
