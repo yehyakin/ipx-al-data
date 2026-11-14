@@ -1,0 +1,135 @@
+{
+ "built": "2026-11-14T18:12:13Z",
+ "epoch": "2026-01-01",
+ "ranges": 91660,
+ "ranges6": 324,
+ "ips": 20969255,
+ "sources": [
+  {
+   "bit": 0,
+   "id": "dshield",
+   "name": "SANS DShield 攻击源",
+   "cat": "扫描/攻击",
+   "link": "https://isc.sans.edu/",
+   "count": 4281,
+   "count6": 0,
+   "error": null
+  },
+  {
+   "bit": 1,
+   "id": "blocklistde",
+   "name": "blocklist.de",
+   "cat": "爆破/攻击",
+   "link": "https://www.blocklist.de/",
+   "count": 23202,
+   "count6": 246,
+   "error": null
+  },
+  {
+   "bit": 2,
+   "id": "cins",
+   "name": "CINS Army",
+   "cat": "扫描/攻击",
+   "link": "https://cinsscore.com/",
+   "count": 15000,
+   "count6": 0,
+   "error": null
+  },
+  {
+   "bit": 3,
+   "id": "ipsum",
+   "name": "IPsum（≥3 个名单）",
+   "cat": "综合",
+   "link": "https://github.com/stamparm/ipsum",
+   "count": 18337,
+   "count6": 0,
+   "error": null
+  },
+  {
+   "bit": 4,
+   "id": "firehol1",
+   "name": "FireHOL Level 1",
+   "cat": "综合",
+   "link": "https://iplists.firehol.org/",
+   "count": 4636,
+   "count6": 0,
+   "error": null
+  },
+  {
+   "bit": 5,
+   "id": "spamhausdrop",
+   "name": "Spamhaus DROP",
+   "cat": "劫持/恶意网段",
+   "link": "https://www.spamhaus.org/blocklists/do-not-route-or-peer/",
+   "count": 1759,
+   "count6": 0,
+   "error": null
+  },
+  {
+   "bit": 6,
+   "id": "tor",
+   "name": "Tor 出口节点",
+   "cat": "匿名网络",
+   "link": "https://check.torproject.org/",
+   "count": 1259,
+   "count6": 0,
+   "error": null
+  },
+  {
+   "bit": 7,
+   "id": "feodo",
+   "name": "abuse.ch Feodo 僵尸网络 C2",
+   "cat": "僵尸网络",
+   "link": "https://feodotracker.abuse.ch/",
+   "count": 5,
+   "count6": 0,
+   "error": null
+  },
+  {
+   "bit": 8,
+   "id": "etcompromised",
+   "name": "Emerging Threats 已失陷主机",
+   "cat": "失陷主机",
+   "link": "https://rules.emergingthreats.net/",
+   "count": 584,
+   "count6": 0,
+   "error": null
+  },
+  {
+   "bit": 10,
+   "id": "spamhausasndrop",
+   "name": "Spamhaus ASN-DROP",
+   "cat": "恶意 ASN",
+   "link": "https://www.spamhaus.org/blocklists/do-not-route-or-peer/",
+   "count": 8720,
+   "count6": 0,
+   "error": null
+  },
+  {
+   "bit": 11,
+   "id": "spamhausdrop6",
+   "name": "Spamhaus DROPv6",
+   "cat": "劫持/恶意网段",
+   "link": "https://www.spamhaus.org/blocklists/do-not-route-or-peer/",
+   "count": 0,
+   "count6": 90,
+   "error": null
+  },
+  {
+   "bit": 9,
+   "id": "sfs",
+   "name": "StopForumSpam（30 天）",
+   "cat": "垃圾注册",
+   "link": "https://www.stopforumspam.com/",
+   "count": 48820,
+   "count6": 0,
+   "error": null
+  }
+ ],
+ "firstSince": "2026-10-31",
+ "hist": {
+  "since": "2026-11-06",
+  "days": 90,
+  "ranges": 141861
+ }
+}
