@@ -1,0 +1,14 @@
+{
+ "built": "2026-11-09T08:49:14Z",
+ "v4": 262562,
+ "v6": 71098,
+ "counts": {
+  "arin": 88958,
+  "ripencc": 127723,
+  "apnic": 75679,
+  "lacnic": 34056,
+  "afrinic": 7244
+ },
+ "format": 2,
+ "note": "date = RIR 最后一次登记变更日，不一定是首次分配；cc = delegated 统计的国家（LIR 所在国）"
+}
